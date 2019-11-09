@@ -1,9 +1,25 @@
-<<<<<<< HEAD
-%Escribo la función de transferencia
-Num = [1 1 3 2]; %Defino el numerado
-Den = [1 2 1 0.5]; %Defino el denominador
-=======
-%Escribo la función de transferencia
-Num = [1 1 3 2]; %Defino el numerado
-Den = [1 2 1 0.5]; %Defino el denominador
->>>>>>> 05869dfb9c9b2de0c947631a201985c00497a1ed
+r = 1;
+
+J1 = 1;
+J2 = 1;
+D1 = 1;
+
+Ft = 1;
+
+N1 = 1;
+N2 = 1;
+N12 = N1/N2;
+
+N21 = N2/N1;
+
+N21_sqr = N21^2;
+
+%Organizo todas las operaciones para ingresarlas a la tf
+coef_r = r;
+coef_S2 = N12*(J1+J2(N21_sqr));
+coef_S = D1+Ft(N21_sqr);
+
+num = [coef_r]; %Defino el numerado
+den = [coef_S2 coef_S]; %Defino el denominador
+G = tf(num,den) %Defino mi función de transferencia
+[A,B,C,D] = ssdata(G) %Defino mi espacio de estados

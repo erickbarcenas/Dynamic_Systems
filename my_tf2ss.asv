@@ -23,3 +23,8 @@ num = [coef_r]; %Defino el numerado
 den = [coef_S2 coef_S]; %Defino el denominador
 G = tf(num,den) %Defino mi función de transferencia
 [A,B,C,D] = ssdata(G) %Defino mi espacio de estados
+[A,B,C,D] =matsplit([A,B,C,D])
+
+
+
+

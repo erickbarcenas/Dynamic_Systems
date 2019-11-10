@@ -18,9 +18,18 @@ N21 = N2/N1;
 N21_sqr = N21^2;
 
 %1.1 - Organizo todas las operaciones para ingresarlas a la tf
+
 coef_r = r;
-coef_S2 = N12*(J1+J2(N21_sqr));
-coef_S = D1+Ft(N21_sqr);
+Jeq = J1+J2(N21_sqr); %Esto es para el diagrama de bloques
+coef_S2 = N12*(Jeq);
+Deq = D1+Ft(N21_sqr); %Esto es para el diagrama de bloques
+coef_S = Deq;
+
+%Unicamente para el diagrama de bloques
+%Diagrana de bloques 1
+Deq_normalizado = N12*Deq;
+Jeq_normalizado = N12*Jeq;
+%Diagrama de bloques 2
 
 %1.2 - Aquí normalizo por eso divido todo entre coef_S2
 num = [coef_r/coef_S2]; %Defino el numerado 
